@@ -28,9 +28,19 @@ function deleteBook(id){
     })
 }
 function printBook(){
+    let nameSearch=$('#nameSearch').val();
+    let authorSearch=$('#authorSearch').val();
+    let minPrice=$('#minPrice').val();
+    let maxPrice=$('#maxPrice').val();
     $.ajax({
         type: "GET",
         url:"http://localhost:8080/book/list",
+        data:{
+            "nameSearch":nameSearch,
+            "authorSearch":authorSearch,
+            "minPrice":minPrice,
+            "maxPrice":maxPrice
+        },
         success:function (data){
             let content="";
             let sum=0;
